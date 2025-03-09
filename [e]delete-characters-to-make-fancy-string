@@ -1,0 +1,21 @@
+// https://leetcode.com/problems/delete-characters-to-make-fancy-string/description/?envType=daily-question&envId=2025-03-09
+
+public class Solution {
+    public string MakeFancyString(string s) {
+        if(s.Length < 3){
+            return s;
+        }
+        StringBuilder otp = new StringBuilder();
+        otp.Append(s[0]);
+        otp.Append(s[1]);
+        
+        for(int i = 2; i < s.Length; i++){
+            if(s[i-1] == s[i] && s[i-2] == s[i-1]){
+                continue;
+            }else{
+                otp.Append(s[i]);
+            }
+        }
+        return otp.ToString();
+    }
+}
